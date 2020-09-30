@@ -1,0 +1,79 @@
+## common
+
+snippet ifel "if-else" b
+if ($1) {
+	$2
+} else {
+	$3
+}
+endsnippet
+
+snippet ff "final field" b
+${1:private} final ${2:String} ${3:`!p snip.rv = t[2].lower()`};
+endsnippet
+
+snippet postRun "Gdx.app.postRunnable with Runnable instance"
+Gdx.app.postRunnable(new Runnable() {
+
+	@Override
+	public void run() {
+		${0}
+	}
+
+});
+endsnippet
+
+snippet Run "new instance subclassing Runnable" w
+new Runnable() {
+
+	@Override
+	public void run() {
+		${0}
+	}
+
+}
+endsnippet
+
+snippet run "override run method" b
+@Override
+public void run() {
+	${0}
+}
+endsnippet
+
+snippet th "throw" b
+throw new ${0:RuntimeException("test")};
+endsnippet
+
+snippet try "try/catch" b
+try {
+	${1}
+} catch (${2:Exception} ${3:e}){
+	${4:throw new RuntimeException(e);}
+}
+endsnippet
+
+## utils
+
+snippet t0 "Start measuring time"
+final long t0 = System.nanoTime();
+endsnippet
+
+snippet t1 "complete measuring time"
+final long t1 = System.nanoTime();
+${0:log}(TAG, "time: " + (t1 - t0) / 1e6 + " ms");
+endsnippet
+
+## libGDX
+
+snippet Gdeb "libGDX debug log"
+Gdx.app.debug(TAG, ${0});
+endsnippet
+
+snippet Glog "libGDX log"
+Gdx.app.log(TAG, ${0});
+endsnippet
+
+snippet Gerr "libGDX error log"
+Gdx.app.error(TAG, ${0});
+endsnippet

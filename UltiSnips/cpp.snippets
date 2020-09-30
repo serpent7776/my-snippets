@@ -1,0 +1,67 @@
+snippet ;; "::" i
+::
+endsnippet
+
+snippet ,, "<< " i
+<< 
+endsnippet
+
+snippet f "lambda" i
+auto ${1:fun} = [${4}](${3})
+{
+	${2}
+}
+endsnippet
+
+snippet std "std::" i
+std::
+endsnippet
+
+snippet ca "const auto var" i
+const auto $0
+endsnippet
+
+snippet cr "const T& var" i
+const ${1:std::string}& ${0:name}
+endsnippet
+
+snippet car "const auto& var" i
+const auto& ${0:name}
+endsnippet
+
+snippet beginend "begin/end iterator pair" i
+std::begin(${0:container}), std::end(${0})
+endsnippet
+
+snippet main "main(int, char*[]) func"
+int main(int argc, char *argv[])
+{
+	${VISUAL}$0
+	return 0;
+}
+endsnippet
+
+snippet fun "function" b
+${1:void} ${2:function_name}($3)
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet cla "An entire .h generator" b
+#ifndef ${2:`!v substitute(vim_snippets#Filename('$1_H','ClassName'),'.*','\U&\E','')`}
+#define $2
+
+class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\u&',''), '_\(\w\)', '\u\1', 'g')`}
+{
+public:
+	$1();
+	virtual ~$1();
+
+private:
+	$3
+};
+
+#endif
+endsnippet
+

@@ -1,0 +1,27 @@
+snippet "^#!" "#!/usr/bin/env ruby" r
+#!/usr/bin/env ruby
+$0
+endsnippet
+
+snippet mod "module"
+module ${1:module_name}
+	${0}
+end
+endsnippet
+
+snippet def
+def ${1:method_name}(${2:args})
+	${3:fail NotImplementedError}
+end
+${0}
+endsnippet
+
+snippet cls "class definition"
+class ${1:class_name}
+
+	def initialize(${2:*args})
+		$0
+	end
+
+end
+endsnippet
